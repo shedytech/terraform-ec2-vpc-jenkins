@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   parameters {
-    choice(name: 'ENV', choices: ['dev', 'stage', 'prod'], description: 'Target environment')
+    choice(name: 'ENV', choices: ['dev'], description: 'Target environment')
     booleanParam(name: 'DESTROY', defaultValue: false, description: 'Destroy infrastructure instead of apply')
   }
 
@@ -15,7 +15,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git url: 'https://github.com/your-org/terraform-ec2-vpc-demo.git', branch: 'main'
+        git url: 'https://github.com/shedytech/terraform-ec2-vpc-jenkins.git', branch: 'main'
       }
     }
 
